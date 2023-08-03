@@ -1,0 +1,49 @@
+body {
+    font-family: Pacifico, Roboto Slab;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.ball {
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.ball1 {
+    height: 200px;
+    width: 200px;
+    background-color: blue;
+}
+
+.ball2 {
+    height: 200px;
+    width: 200px;
+    background-color: red;
+}
+
+.ball3 {
+    height: 200px;
+    width: 200px;
+    background-color: green;
+}
+
+.ball4 {
+    height: 200px;
+    width: 200px;
+    background-color: yellow;
+}
+
+.ball5 {
+    height: 200px;
+    width: 200px;
+    background-color: purple;
+}
