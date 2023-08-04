@@ -1,5 +1,6 @@
 body {
     font-family: Pacifico, Roboto Slab;
+    background: url("../images/background-1920.jpg") no-repeat center center;
 }
 
 h1 {
@@ -26,21 +27,43 @@ h1 {
 }
 
 .ball1 {
-    background-color: blue;
+    background-color: #9AC5F4;
 }
 
 .ball2 {
-    background-color: red;
+    background-color: #FFBFA9;
 }
 
 .ball3 {
-    background-color: green;
+    background-color: #7EAA92;
 }
 
 .ball4 {
-    background-color: yellow;
+    background-color: #FBFFB1;
 }
 
 .ball5 {
-    background-color: purple;
+    background-color: #D7BBF5;
+}
+
+.scoredisplay {
+    border-radius: 25%;
+    box-sizing: border-box;
+    background-color: #E6ECF0;
+    height: 80px;
+    width: 160px;
+    text-align: center;
+    font-size: 3em;
+    margin: 0 auto;
+}
+
+.button {
+    background-color: #FF5A60;
+    border: 0;
+    height: 80px;
+    width: 160px;
+    border-radius: 25%;
+    margin: 0 auto;
+    display: block;
+    font-weight: 600;
 }
