@@ -11,10 +11,16 @@ function newGame() {
     game.playerMoves = [];
     game.score = 0;
     scoreDisplay();
+    newTurn();
+}
+
+function newTurn() {
+    game.playerMoves = [];
+    game.currentGame.push(game.balls[(Math.floor(Math.random() * 4))]);
 }
 
 function scoreDisplay() {
     document.getElementById("score").innerText = game.score;
 }
 
-module.exports = { game, newGame, scoreDisplay };
+module.exports = { game, newGame, scoreDisplay, newTurn };
