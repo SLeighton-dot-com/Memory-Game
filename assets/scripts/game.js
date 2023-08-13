@@ -4,6 +4,8 @@ let game = {
     score: 0,
     balls: ["ball1", "ball2", "ball3", "ball4", "ball5"],
     numberOfTurns: 0,
+    turnInProgress: false,
+    lastButton: "",
 };
 
 
@@ -15,10 +17,13 @@ function newGame() {
     for (let ball of balls) {
         if (!ball.hasAttribute("data-listener")) {
             ball.addEventListener("click", (e) => {
-                let playerMove = e.target.getAttribute("id");
-                highlightBall(playerMove);
-                game.playerMoves.push(playerMove);
-                playerTurn();
+                if (game.currentGame.length > 0 && !game.turnInProgress) {
+                    let playerMove = e.target.getAttribute("id");
+                    game.lastButton = move;
+                    highlightBall(playerMove);
+                    game.playerMoves.push(playerMove);
+                    playerTurn();
+                }
             });
             ball.setAttribute("data-listener", "true");
         }
