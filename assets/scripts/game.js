@@ -19,7 +19,7 @@ function newGame() {
             ball.addEventListener("click", (e) => {
                 if (game.currentGame.length > 0 && !game.turnInProgress) {
                     let playerMove = e.target.getAttribute("id");
-                    game.lastButton = move;
+                    game.lastButton = playerMove;
                     highlightBall(playerMove);
                     game.playerMoves.push(playerMove);
                     playerTurn();
