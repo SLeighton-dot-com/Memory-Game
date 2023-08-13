@@ -11,6 +11,17 @@ function newGame() {
     game.currentGame = [];
     game.playerMoves = [];
     game.score = 0;
+    for (let ball of document.getElementsByClassName("ball")) {
+        if (ball.getAttribute("data-listener") !== "true") {
+            ball.addEventListener("click", (e) => {
+                let playerMove = e.target.getAttribute("id");
+                highlightBall(playerMove);
+                game.playerMoves.push(playerMove);
+                playerTurn();
+            });
+            ball.setAttribute("data-listener", "true");
+        }
+    }
     scoreDisplay();
     newTurn();
 }
