@@ -39,7 +39,7 @@ function scoreDisplay() {
 
 function highlightBall(ball) {
     document.getElementById(ball).classList.add("highlight");
-    setTimeout(function () {
+    setTimeout(() => {
         document.getElementById(ball).classList.remove("highlight");
     }, 300);
 }
