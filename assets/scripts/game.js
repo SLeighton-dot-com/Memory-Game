@@ -50,12 +50,14 @@ function highlightBall(ball) {
 }
 
 function showTurns() {
+    game.turnInProgress = true;
     game.numberOfTurns = 0;
     let turns = setInterval(() => {
         highlightBall(game.currentGame[game.numberOfTurns]);
         game.numberOfTurns++;
         if (game.numberOfTurns >= game.currentGame.length) {
             clearInterval(turns);
+            game.turnInProgress = false;
         }
     }, 600);
 }
