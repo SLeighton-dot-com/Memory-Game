@@ -11,8 +11,9 @@ function newGame() {
     game.currentGame = [];
     game.playerMoves = [];
     game.score = 0;
-    for (let ball of document.getElementsByClassName("ball")) {
-        if (ball.getAttribute("data-listener") !== "true") {
+    let balls = document.getElementsByClassName("ball");
+    for (let ball of balls) {
+        if (!ball.hasAttribute("data-listener")) {
             ball.addEventListener("click", (e) => {
                 let playerMove = e.target.getAttribute("id");
                 highlightBall(playerMove);
