@@ -16,7 +16,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 200px;
 }
 
 .ball {
@@ -46,15 +45,21 @@ h1 {
     background-color: #D7BBF5;
 }
 
-.scoreDisplay {
+.scoreDisplay,
+.movesLeft,
+.scoreTitle {
     border-radius: 25%;
     box-sizing: border-box;
     background-color: #E6ECF0;
     height: 80px;
     width: 160px;
     text-align: center;
-    font-size: 3em;
     margin: 0 auto;
+}
+
+.scoreDisplay,
+.movesLeft {
+   font-size: 3em;
 }
 
 .button {
@@ -66,6 +71,12 @@ h1 {
     margin: 0 auto;
     display: block;
     font-weight: 600;
+}
+
+.scoreTitle {
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-top: 25px;
 }
 
 .highlight {
