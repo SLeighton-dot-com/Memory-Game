@@ -3,7 +3,7 @@ let game = {
     playerMoves: [],
     score: 0,
     balls: ["ball1", "ball2", "ball3", "ball4", "ball5"],
-    
+    numberOfTurns: 0,
 };
 
 
@@ -17,7 +17,8 @@ function newGame() {
 
 function newTurn() {
     game.playerMoves = [];
-    game.currentGame.push(game.balls[(Math.floor(Math.random() * 4))]);
+    game.currentGame.push(game.balls[(Math.floor(Math.random() * 5))]);
+    showTurns()
 }
 
 function scoreDisplay() {
@@ -29,6 +30,17 @@ function highlightBall(ball) {
     setTimeout(function () {
         document.getElementById(ball).classList.remove("highlight");
     }, 300);
+}
+
+function showTurns() {
+    game.numberOfTurns = 0;
+    let turns = setInterval(() => {
+        highlightBall(game.currentGame[game.numberOfTurns]);
+        game.numberOfTurns++;
+        if (game.turnNumber >= game.currentGame.length) {
+            clearInterval(turns);
+        }
+    }, 800);
 }
 
 // module.exports = { game, newGame, scoreDisplay, newTurn };
