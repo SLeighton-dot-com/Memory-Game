@@ -54,4 +54,17 @@ function showTurns() {
     }, 800);
 }
 
+function playerTurn() {
+    let i = game.playerMoves.length - 1;
+    if (game.currentGame[i] === game.playerMoves[i]) {
+        if (game.currentGame.length === game.playerMoves.length) {
+            game.score++;
+            scoreDisplay();
+            newTurn();
+        }
+    } else {
+        alert("We're sorry, that was the wrong ball! Please start a new game.");
+    }
+}
+
 // module.exports = { game, newGame, scoreDisplay, newTurn };
