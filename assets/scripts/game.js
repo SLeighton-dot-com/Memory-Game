@@ -48,11 +48,12 @@ function showTurns() {
     let turns = setInterval(() => {
         highlightBall(game.currentGame[game.numberOfTurns]);
         game.numberOfTurns++;
-        if (game.turnNumber >= game.currentGame.length) {
+        if (game.numberOfTurns >= game.currentGame.length) {
             clearInterval(turns);
         }
-    }, 800);
+    }, 600);
 }
+
 
 function playerTurn() {
     let i = game.playerMoves.length - 1;
@@ -60,7 +61,9 @@ function playerTurn() {
         if (game.currentGame.length === game.playerMoves.length) {
             game.score++;
             scoreDisplay();
-            newTurn();
+            setTimeout(() => {
+                newTurn();
+            }, 1000);
         }
     } else {
         alert("We're sorry, that was the wrong ball! Please start a new game.");
