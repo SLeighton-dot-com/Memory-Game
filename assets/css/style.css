@@ -67,3 +67,7 @@ h1 {
     display: block;
     font-weight: 600;
 }
+
+.highlight {
+    border: 40px solid yellow ;
+}
