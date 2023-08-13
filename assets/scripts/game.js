@@ -2,7 +2,8 @@ let game = {
     currentGame: [],
     playerMoves: [],
     score: 0,
-    balls: ["ball1", "ball2", "ball3", "ball4", "ball5"]
+    balls: ["ball1", "ball2", "ball3", "ball4", "ball5"],
+    
 };
 
 
@@ -23,4 +24,11 @@ function scoreDisplay() {
     document.getElementById("score").innerText = game.score;
 }
 
-module.exports = { game, newGame, scoreDisplay, newTurn };
+function highlightBall(ball) {
+    document.getElementById(ball).classList.add("highlight");
+    setTimeout(function () {
+        document.getElementById(ball).classList.remove("highlight");
+    }, 300);
+}
+
+// module.exports = { game, newGame, scoreDisplay, newTurn };
