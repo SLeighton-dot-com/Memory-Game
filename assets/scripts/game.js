@@ -9,12 +9,11 @@ let game = {
     movesLeft: 0,
 };
 
-
 function newGame() {
     game.currentGame = [];
     game.playerMoves = [];
     game.score = 0;
-    game.movesLeft = 1;
+    game.movesLeft = 0;
     let balls = document.getElementsByClassName("ball");
     for (let ball of balls) {
         if (!ball.hasAttribute("data-listener")) {
@@ -55,10 +54,10 @@ function showTurns() {
     game.turnInProgress = true;
     game.numberOfTurns = 0;
     let turns = setInterval(() => {
-        console.log("Displaying turn", game.numberOfTurns);
-        highlightBall(game.currentGame[game.numberOfTurns]);
         document.getElementById("left").innerText = game.movesLeft;
         game.movesLeft++
+        console.log("Displaying turn", game.numberOfTurns);
+        highlightBall(game.currentGame[game.numberOfTurns]);
         game.numberOfTurns++;
         if (game.numberOfTurns >= game.currentGame.length) {
             clearInterval(turns);
@@ -70,6 +69,9 @@ function showTurns() {
 
 function playerTurn() {
     let i = game.playerMoves.length - 1;
+    game.movesLeft--; // Decrement movesLeft for each correct move by the player
+    console.log("Moves left after correct move:", game.movesLeft);
+    document.getElementById("left").innerText = game.movesLeft; 
     if (game.currentGame[i] === game.playerMoves[i]) {
         if (game.currentGame.length === game.playerMoves.length) {
             game.score++;
@@ -78,10 +80,6 @@ function playerTurn() {
             setTimeout(() => {
                 newTurn();
             }, 1000);
-        } else {
-            game.movesLeft--; // Decrement movesLeft for each correct move by the player
-            console.log("Moves left after correct move:", game.movesLeft);
-            document.getElementById("left").innerText = game.movesLeft; 
         }
     } else {
         alert("We're sorry, that was the wrong ball! Please start a new game.");
