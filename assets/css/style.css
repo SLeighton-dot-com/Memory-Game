@@ -47,7 +47,8 @@ h1 {
 
 .scoreDisplay,
 .movesLeft,
-.scoreTitle {
+.scoreTitle,
+.timer {
     border-radius: 25%;
     box-sizing: border-box;
     background-color: #E6ECF0;
@@ -58,7 +59,8 @@ h1 {
 }
 
 .scoreDisplay,
-.movesLeft {
+.movesLeft,
+.timer {
    font-size: 3em;
 }
 
