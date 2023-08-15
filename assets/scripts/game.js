@@ -23,6 +23,9 @@ function newGame() {
                     game.lastButton = playerMove;
                     highlightBall(playerMove);
                     game.playerMoves.push(playerMove);
+                    game.movesLeft--; 
+                    console.log("Moves left after player move:", game.movesLeft);
+                    document.getElementById("left").innerText = game.movesLeft;
                     playerTurn();
                 }
             });
@@ -36,7 +39,8 @@ function newGame() {
 function newTurn() {
     game.playerMoves = [];
     game.currentGame.push(game.balls[(Math.floor(Math.random() * 5))]);
-    showTurns()
+    game.movesLeft = game.currentGame.length;  
+    showTurns();
 }
 
 function scoreDisplay() {
@@ -55,26 +59,22 @@ function showTurns() {
     game.numberOfTurns = 0;
     let turns = setInterval(() => {
         document.getElementById("left").innerText = game.movesLeft;
-        game.movesLeft++
-        console.log("Displaying turn", game.numberOfTurns);
         highlightBall(game.currentGame[game.numberOfTurns]);
         game.numberOfTurns++;
+        console.log("Displaying turn", game.numberOfTurns);
         if (game.numberOfTurns >= game.currentGame.length) {
             clearInterval(turns);
             game.turnInProgress = false;
         }
-    }, 600);
+    }, 800);
 }
 
 
 function playerTurn() {
     let i = game.playerMoves.length - 1;
-    game.movesLeft--; // Decrement movesLeft for each correct move by the player
-    console.log("Moves left after correct move:", game.movesLeft);
-    document.getElementById("left").innerText = game.movesLeft; 
-    if (game.currentGame[i] === game.playerMoves[i]) {
+    if (game.currentGame[i] === game.playerMoves[i]) {        
         if (game.currentGame.length === game.playerMoves.length) {
-            game.score++;
+            game.score++;            
             game.movesLeft = 1;
             scoreDisplay();
             setTimeout(() => {
