@@ -24,7 +24,6 @@ function newGame() {
                     highlightBall(playerMove);
                     game.playerMoves.push(playerMove);
                     game.movesLeft--; 
-                    console.log("Moves left after player move:", game.movesLeft);
                     document.getElementById("left").innerText = game.movesLeft;
                     playerTurn();
                 }
@@ -41,6 +40,10 @@ function newTurn() {
     game.currentGame.push(game.balls[(Math.floor(Math.random() * 5))]);
     game.movesLeft = game.currentGame.length;  
     showTurns();
+    if (game.timer) {
+        clearInterval(game.timer);
+        game.timer = null;
+    }
 }
 
 function scoreDisplay() {
@@ -61,10 +64,10 @@ function showTurns() {
         document.getElementById("left").innerText = game.movesLeft;
         highlightBall(game.currentGame[game.numberOfTurns]);
         game.numberOfTurns++;
-        console.log("Displaying turn", game.numberOfTurns);
         if (game.numberOfTurns >= game.currentGame.length) {
             clearInterval(turns);
             game.turnInProgress = false;
+            startTimer();
         }
     }, 800);
 }
@@ -72,8 +75,9 @@ function showTurns() {
 
 function playerTurn() {
     let i = game.playerMoves.length - 1;
-    if (game.currentGame[i] === game.playerMoves[i]) {        
+    if (game.currentGame[i] === game.playerMoves[i]) {       
         if (game.currentGame.length === game.playerMoves.length) {
+            clearInterval(game.timer);
             game.score++;            
             game.movesLeft = 1;
             scoreDisplay();
@@ -82,8 +86,28 @@ function playerTurn() {
             }, 1000);
         }
     } else {
+        clearInterval(game.timer);
         alert("We're sorry, that was the wrong ball! Please start a new game.");
     }
+}
+
+function startTimer() {
+    if (game.timer) return;
+    let timeLeft = game.currentGame.length * 2;
+    updateTimerDisplay(timeLeft);
+    game.timer = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay(timeLeft);
+
+        if (timeLeft <= 0) {
+            clearInterval(game.timer);
+            alert("We're sorry, your time's up! Please start a new game.");
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay(seconds) {
+    document.getElementById("timer").innerText = seconds;
 }
 
 // module.exports = { game, newGame, scoreDisplay, newTurn };
