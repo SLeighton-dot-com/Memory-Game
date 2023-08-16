@@ -21,59 +21,65 @@
     <title>Memory Balls</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Memory Balls</h1>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="ball ball1" id="ball1"></div>
-        </div>
-        <div class="col">
-          <div class="ball ball2" id="ball2"></div>
-        </div>
-        <div class="col">
-          <div class="ball ball3" id="ball3"></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-2"></div>
-        <div class="col">
-          <div class="ball ball4" id="ball4"></div>
-        </div>
-        <div class="col">
-          <div class="ball ball5" id="ball5"></div>
-        </div>
-        <div class="col-2"></div>
-      </div>
-    </div>
-    <div class="container">
-        <div class="row">
+<body>
+    <header class="container">
+        <h1>Memory Balls</h1>
+    </header>
+
+    <main class="container">
+        <section class="row">
+            <article class="col">
+                <div class="ball ball1" id="ball1" role="button" tabindex="0" aria-label="Ball 1"></div>
+            </article>
+            <article class="col">
+                <div class="ball ball2" id="ball2" role="button" tabindex="0" aria-label="Ball 2"></div>
+            </article>
+            <article class="col">
+                <div class="ball ball3" id="ball3" role="button" tabindex="0" aria-label="Ball 3"></div>
+            </article>
+        </section>
+
+        <section class="row">
+            <div class="col-2"></div>
+            <article class="col">
+                <div class="ball ball4" id="ball4" role="button" tabindex="0" aria-label="Ball 4"></div>
+            </article>
+            <article class="col">
+                <div class="ball ball5" id="ball5" role="button" tabindex="0" aria-label="Ball 5"></div>
+            </article>
+            <div class="col-2"></div>
+        </section>
+    </main>
+
+    <aside class="container">
+        <section class="row">
             <div class="col-3">
-                <p class="scoreTitle">Moves Left</p>
+                <h2 class="scoreTitle">Moves Left</h2>
             </div>
             <div class="col-3">
-                <p class="scoreTitle">Timer</p>
+                <h2 class="scoreTitle">Timer</h2>
             </div>
             <div class="col-3">
-                <p class="scoreTitle">High Score</p>
+                <h2 class="scoreTitle">High Score</h2>
             </div>
-        </div>
-      <div class="row">
-        <div class="col">
-            <div class="movesLeft" id="left">0</div>
-        </div>
-        <div class="col">
-            <span class="timer" id="timer">0</span>
-        </div>
-        <div class="col">
-          <div class="scoreDisplay" id="score">0</div>
-        </div>
-        <div class="col">
-          <button class="button" onclick="newGame()">Start New Game</button>
-        </div>
-      </div>
-    </div>
+        </section>
+
+        <section class="row">
+            <div class="col">
+                <div class="movesLeft" id="left">0</div>
+            </div>
+            <div class="col">
+                <time class="timer" id="timer">0</time>
+            </div>
+            <div class="col">
+                <div class="scoreDisplay" id="score">0</div>
+            </div>
+            <div class="col">
+                <button class="button" onclick="newGame()">Start New Game</button>
+            </div>
+        </section>
+    </aside>
+</body>
 
     <audio id="sound_ball1">
         <source src="assets/audio/sound_ball1.mp3" preload="auto">
