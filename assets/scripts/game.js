@@ -16,6 +16,19 @@ let game = {
     }
 };
 
+document.addEventListener("DOMContentLoaded", function () {
+    showOverlay();
+});
+
+function showOverlay() {
+    document.getElementById('overlay').style.display = 'flex';
+}
+
+function closeOverlay() {
+    document.getElementById('overlay').style.display = 'none';
+}
+
+
 function newGame() {
     game.currentGame = [];
     game.playerMoves = [];
