@@ -27,22 +27,27 @@ h1 {
 
 .ball1 {
     background-color: #9AC5F4;
+    border: 10px solid #66a9f0;
 }
 
 .ball2 {
     background-color: #FFBFA9;
+    border: 10px solid #f88e6a;
 }
 
 .ball3 {
-    background-color: #7EAA92;
+    background-color: #a7c9b6;
+    border: 10px solid #4cac77;
 }
 
 .ball4 {
     background-color: #FBFFB1;
+    border: 10px solid #f1f86e;
 }
 
 .ball5 {
     background-color: #D7BBF5;
+    border: 10px solid #b67df3;
 }
 
 .scoreDisplay,
