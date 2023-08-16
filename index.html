@@ -26,6 +26,8 @@
         <h1>Memory Balls</h1>
     </header>
 
+    <button class="instructionsButton button" onclick="showOverlay()">Instructions</button>
+
     <main class="container">
         <section class="row">
             <article class="col">
@@ -96,6 +98,34 @@
     <audio id="sound_ball5">
         <source src="assets/audio/sound_ball5.mp3" preload="auto">
     </audio>
+
+    <div id="overlay" style="display: none;">
+        <div class="modal-content">
+            <h1>Welcome to Memory Balls!</h1>
+            <p>Memory Balls is a fun and challenging game designed to test and improve your memory skills. The game is simple but can
+            get tricky as you progress.<br><br>
+            
+            How to Play:<br>
+            
+            Watch Carefully: At the start of each turn, a sequence of balls will light up. Pay close attention, as you'll need to
+            remember this sequence.<br>
+            Repeat the Sequence: After the sequence is shown, click on the balls in the same order they lit up. Be quick, as there's
+            a timer counting down!<br>
+            Score Points: For every correct sequence you replicate, you earn a point. The sequences get longer with each turn, so
+            stay sharp!<br>
+            Game Over: If you click the wrong ball or run out of time, the game ends. Don't worry; you can always start a new game
+            to beat your high score!<br><br>
+            Tips:<br>
+            
+            Stay focused and try to visualize the sequence in your mind.<br>
+            As the sequences get longer, try to find patterns or create a story in your head to remember them better.<br>
+            Challenge yourself and aim to beat your previous high score!<br>
+            Ready to test your memory?<br> 
+            Click 'Start New Game' and let the fun begin!
+            </p>
+            <button id="modalClose" onclick="closeOverlay()">Close</button>
+        </div>
+    </div>
 
     <script src="assets/scripts/game.js"></script>
   </body>
