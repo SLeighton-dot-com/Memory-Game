@@ -69,6 +69,10 @@ h1 {
    font-size: 3em;
 }
 
+h2{
+    font-size: 1.5em;
+}
+
 .button {
     background-color: #FF5A60;
     border: 0;
@@ -81,11 +85,10 @@ h1 {
 }
 
 .scoreTitle {
-    font-weight: 600;
     margin-bottom: 10px;
     padding-top: 25px;
 }
 
 .highlight {
-    border: 40px solid red ;
+    background-color: #444a4e;
 }
