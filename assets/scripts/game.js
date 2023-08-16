@@ -7,6 +7,13 @@ let game = {
     turnInProgress: false,
     lastButton: "",
     movesLeft: 0,
+    sounds: {
+        ball1: new Audio(src="assets/audio/sound_ball1.mp3"),
+        ball2: new Audio('assets/audio/sound_ball2.mp3'),
+        ball3: new Audio('assets/audio/sound_ball3.mp3'),
+        ball4: new Audio('assets/audio/sound_ball4.mp3'),
+        ball5: new Audio('passets/audio/sound_ball5.mp3')
+    }
 };
 
 function newGame() {
@@ -51,6 +58,11 @@ function scoreDisplay() {
 }
 
 function highlightBall(ball) {
+    let audioElement = document.getElementById("sound_" + ball);
+    if (audioElement) {
+        audioElement.currentTime = 0;
+        audioElement.play();
+    } // Play the sound for the ball
     document.getElementById(ball).classList.add("highlight");
     setTimeout(() => {
         document.getElementById(ball).classList.remove("highlight");
