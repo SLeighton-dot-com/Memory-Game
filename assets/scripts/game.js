@@ -12,7 +12,7 @@ let game = {
         ball2: new Audio('assets/audio/sound_ball2.mp3'),
         ball3: new Audio('assets/audio/sound_ball3.mp3'),
         ball4: new Audio('assets/audio/sound_ball4.mp3'),
-        ball5: new Audio('passets/audio/sound_ball5.mp3')
+        ball5: new Audio('assets/audio/sound_ball5.mp3')
     }
 };
 
