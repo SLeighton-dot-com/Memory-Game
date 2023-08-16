@@ -16,20 +16,19 @@ let game = {
     }
 };
 
-document.addEventListener("DOMContentLoaded", function () {
-    showOverlay();
-});
+document.addEventListener("DOMContentLoaded", () => showOverlay());
 
-function showOverlay() {
+const showOverlay = () => {
     document.getElementById('overlay').style.display = 'flex';
-}
+};
 
-function closeOverlay() {
+const closeOverlay = () => {
     document.getElementById('overlay').style.display = 'none';
 }
 
 
-function newGame() {
+
+const newGame = () => {
     game.currentGame = [];
     game.playerMoves = [];
     game.score = 0;
@@ -55,7 +54,7 @@ function newGame() {
     newTurn();
 }
 
-function newTurn() {
+const newTurn = () => {
     game.playerMoves = [];
     game.currentGame.push(game.balls[(Math.floor(Math.random() * 5))]);
     game.movesLeft = game.currentGame.length;  
@@ -66,11 +65,11 @@ function newTurn() {
     }
 }
 
-function scoreDisplay() {
+const scoreDisplay = () => {
     document.getElementById("score").innerText = game.score;
 }
 
-function highlightBall(ball) {
+const highlightBall = (ball) => {
     let audioElement = document.getElementById("sound_" + ball);
     if (audioElement) {
         audioElement.currentTime = 0;
@@ -82,7 +81,7 @@ function highlightBall(ball) {
     }, 300);
 }
 
-function showTurns() {
+const showTurns = () => {
     game.turnInProgress = true;
     game.numberOfTurns = 0;
     let turns = setInterval(() => {
@@ -98,7 +97,7 @@ function showTurns() {
 }
 
 
-function playerTurn() {
+const playerTurn = () => {
     let i = game.playerMoves.length - 1;
     if (game.currentGame[i] === game.playerMoves[i]) {       
         if (game.currentGame.length === game.playerMoves.length) {
@@ -116,7 +115,7 @@ function playerTurn() {
     }
 }
 
-function startTimer() {
+const startTimer = () => {
     if (game.timer) return;
     let timeLeft = game.currentGame.length * 2;
     updateTimerDisplay(timeLeft);
@@ -131,7 +130,7 @@ function startTimer() {
     }, 1000);
 }
 
-function updateTimerDisplay(seconds) {
+const updateTimerDisplay = (seconds) => {
     document.getElementById("timer").innerText = seconds;
 }
 
