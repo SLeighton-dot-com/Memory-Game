@@ -8,11 +8,11 @@ let game = {
     lastButton: "",
     movesLeft: 0,
     sounds: {
-        ball1: new Audio(src="assets/audio/sound_ball1.mp3"),
-        ball2: new Audio('assets/audio/sound_ball2.mp3'),
-        ball3: new Audio('assets/audio/sound_ball3.mp3'),
-        ball4: new Audio('assets/audio/sound_ball4.mp3'),
-        ball5: new Audio('assets/audio/sound_ball5.mp3')
+        ball1: new Audio(src = "assets/audio/sound_ball1.mp3"),
+        ball2: new Audio(src = "assets/audio/sound_ball2.mp3"),
+        ball3: new Audio(src = "assets/audio/sound_ball3.mp3"),
+        ball4: new Audio(src = "assets/audio/sound_ball4.mp3"),
+        ball5: new Audio(src = "assets/audio/sound_ball5.mp3")
     }
 };
 
@@ -20,27 +20,31 @@ document.addEventListener("DOMContentLoaded", () => showOverlay());
 
 const showOverlay = () => {
     try {
-        const overlay = document.getElementById('overlay');
+        const overlay = document.getElementById("overlay");
         if (overlay) {
-            overlay.style.display = 'flex';
+            overlay.style.display = "flex";
         } else {
-            console.error("Element with id 'overlay' not found.");
+            console.error("Element with id `overlay` not found.");
+            displayErrorModal("Sorry, Element with id `overlay` not found! The error has been logged to the console. Please try again.");
         }
     } catch (error) {
-        console.error("Error in showOverlay:", error);
+        console.error("Error in showOverlay function!", error);
+        displayErrorModal("Sorry, An error occurred with the showOverlay function! The error has been logged to the console. Please try again.");
     }
 };
 
 const closeOverlay = () => {
     try {
-        const overlay = document.getElementById('overlay');
+        const overlay = document.getElementById(`overlay`);
         if (overlay) {
-            overlay.style.display = 'none';
+            overlay.style.display = "none";
         } else {
-            console.error("Element with id 'overlay' not found.");
+            console.error("Element with id `overlay` not found.");
+            displayErrorModal("Sorry, Element with id 'overlay' not found! The error has been logged to the console. Please try again.");
         }
     } catch (error) {
-        console.error("Error in closeOverlay:", error);
+        console.error("Error in closeOverlay function!", error);
+        displayErrorModal("Sorry, An error occurred with the closeOverlay function! The error has been logged to the console. Please try again.");
     }
 }
 
@@ -68,6 +72,7 @@ const newGame = () => {
                             leftElement.innerText = game.movesLeft;
                         } else {
                             console.error("Element with id 'left' not found.");
+                            displayErrorModal("Sorry, Element with id 'left' not found! The error has been logged to the console. Please try again.");
                         }
                         playerTurn();
                     }
@@ -78,7 +83,8 @@ const newGame = () => {
         scoreDisplay();
         newTurn();
     } catch (error) {
-        console.error("Error in newGame:", error);
+        console.error("Error in newGame function!", error);
+        displayErrorModal("Sorry, An error occurred with the newGame function! The error has been logged to the console. Please try again.");
     }
 }
 
@@ -92,7 +98,8 @@ const newTurn = () => {
         if (leftElement) {
             leftElement.innerText = game.movesLeft;
         } else {
-            console.error("Element with id 'left' not found.");
+            console.error("Element with id 'left' not found.", error);
+            displayErrorModal("Sorry, Element with id 'left' not found! The error has been logged to the console. Please try again.");
         }
         showTurns();
         if (game.timer) {
@@ -100,7 +107,8 @@ const newTurn = () => {
             game.timer = null;
         }
     } catch (error) {
-        console.error("Error in newTurn:", error);
+        console.error("Error in newTurn function!", error);
+        displayErrorModal("Sorry, An error occurred with the newTurn function! The error has been logged to the console. Please try again.");
     }
 }
 
@@ -110,10 +118,12 @@ const scoreDisplay = () => {
         if (scoreElement) {
             scoreElement.innerText = game.score;
         } else {
-            console.error("Element with id 'score' not found.");
+            console.error("Element with id 'score' not found.", error);
+            displayErrorModal("Sorry, Element with id 'score' not found! The error has been logged to the console. Please try again.");
         }
     } catch (error) {
-        console.error("Error in scoreDisplay:", error);
+        console.error("Error in scoreDisplay function!", error);
+        displayErrorModal("Sorry, An error occurred with the scoreDisplay function! The error has been logged to the console. Please try again.");
     }
 }
 
@@ -124,7 +134,8 @@ const highlightBall = (ball) => {
             audioElement.currentTime = 0;
             audioElement.play();
         } else {
-            console.warn(`Audio element for ball ${ball} not found.`);
+            console.warn(`Audio element for ball ${ball} not found.`, error);
+            displayErrorModal(`Sorry, Audio element for ball ${ball} not found! The error has been logged to the console. Please try again.`);
         }
         const ballElement = document.getElementById(ball);
         if (ballElement) {
@@ -133,10 +144,12 @@ const highlightBall = (ball) => {
                 ballElement.classList.remove("highlight");
             }, 300);
         } else {
-            console.error(`Element with id ${ball} not found.`);
+            console.error(`Element with id ${ball} not found.`, error);
+            displayErrorModal(`Sorry, Element with id ${ball} not found! The error has been logged to the console. Please try again.`);
         }
     } catch (error) {
-        console.error("Error in highlightBall:", error);
+        console.error("Error in highlightBall function!", error);
+        displayErrorModal("Sorry, An error occurred with the highlightBall function! The error has been logged to the console. Please try again.");
     }
 }
 
@@ -160,7 +173,8 @@ const showTurns = () => {
             }
         }, 800);
     } catch (error) {
-        console.error("Error in showTurns:", error);
+        console.error("Error in showTurns function!", error);
+        displayErrorModal("Sorry, An error occurred with the showTurns function! The error has been logged to the console. Please try again.");
     }
 }
 
@@ -183,7 +197,8 @@ const playerTurn = () => {
             alert("We're sorry, that was the wrong ball! Please start a new game.");
         }
     } catch (error) {
-        console.error("Error in playerTurn:", error);
+        console.error("Error in playerTurn function!", error);
+        displayErrorModal("Sorry, An error occurred with the playerTurn function! The error has been logged to the console. Please try again.");
     }
 }
 
@@ -201,7 +216,8 @@ const startTimer = () => {
             }
         }, 1000);
     } catch (error) {
-        console.error("Error in startTimer:", error);
+        console.error("Error in startTimer function!", error);
+        displayErrorModal("Sorry, An error occurred with the startTimer function! The error has been logged to the console. Please try again.");
     }
 }
 
@@ -211,10 +227,28 @@ const updateTimerDisplay = (seconds) => {
         if (timerElement) {
             timerElement.innerText = seconds;
         } else {
-            console.error("Element with id 'timer' not found.");
+            console.error("Element with id 'timer' not found.", error);
+            displayErrorModal("Sorry, Element with id 'timer' not found! The error has been logged to the console. Please try again.");
         }
     } catch (error) {
-        console.error("Error in updateTimerDisplay:", error);
+        console.error("Error in updateTimerDisplay function!", error);
+        displayErrorModal("Sorry, An error occurred with the updateTimerDisplay function! The error has been logged to the console. Please try again.");
+    }
+}
+
+const displayErrorModal = (message) => {
+    const modal = document.getElementById("errorModal");
+    const modalMessage = document.getElementById("errorModalMessage");
+    if (modal && modalMessage) {
+        modalMessage.textContent = message;
+        modal.style.display = "block";
+    }
+}
+
+const closeErrorModal = () => {
+    const modal = document.getElementById("errorModal");
+    if (modal) {
+        modal.style.display = "none";
     }
 }
 
