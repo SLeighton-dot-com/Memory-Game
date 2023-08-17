@@ -12,7 +12,8 @@ let game = {
         ball2: new Audio(src = "assets/audio/sound_ball2.mp3"),
         ball3: new Audio(src = "assets/audio/sound_ball3.mp3"),
         ball4: new Audio(src = "assets/audio/sound_ball4.mp3"),
-        ball5: new Audio(src = "assets/audio/sound_ball5.mp3")
+        ball5: new Audio(src = "assets/audio/sound_ball5.mp3"),
+        success: new Audio(src = "assets/audio/sound_success.mp3")
     }
 };
 
@@ -47,8 +48,6 @@ const closeOverlay = () => {
         displayErrorModal("Sorry, An error occurred with the closeOverlay function! The error has been logged to the console. Please try again.");
     }
 }
-
-
 
 const newGame = () => {
     try {
@@ -178,7 +177,6 @@ const showTurns = () => {
     }
 }
 
-
 const playerTurn = () => {
     try {
         let i = game.playerMoves.length - 1;
@@ -188,6 +186,7 @@ const playerTurn = () => {
                 game.score++;
                 game.movesLeft = 1;
                 scoreDisplay();
+                game.sounds.success.play();
                 setTimeout(() => {
                     newTurn();
                 }, 1000);
