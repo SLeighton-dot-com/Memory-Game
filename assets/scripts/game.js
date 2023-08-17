@@ -17,37 +17,95 @@ let game = {
     }
 };
 
-document.addEventListener("DOMContentLoaded", () => showOverlay());
+document.addEventListener("DOMContentLoaded", () => {
+    emailjs.init('mvzgNnjxhZaW8DI7r'); 
+    showInstructions()
+});
 
-const showOverlay = () => {
+const showInstructions = () => {
     try {
-        const overlay = document.getElementById("overlay");
-        if (overlay) {
-            overlay.style.display = "flex";
+        const instructions = document.getElementById("instructions");
+        if (instructions) {
+            instructions.style.display = "flex";
         } else {
-            console.error("Element with id `overlay` not found.");
-            displayErrorModal("Sorry, Element with id `overlay` not found! The error has been logged to the console. Please try again.");
+            console.error("Element with id `instructions` not found.");
+            displayErrorModal("Sorry, Element with id `instructions` not found! The error has been logged to the console. Please try again.");
         }
     } catch (error) {
-        console.error("Error in showOverlay function!", error);
-        displayErrorModal("Sorry, An error occurred with the showOverlay function! The error has been logged to the console. Please try again.");
+        console.error("Error in showInstructions function!", error);
+        displayErrorModal("Sorry, An error occurred with the showInstructions function! The error has been logged to the console. Please try again.");
     }
 };
 
-const closeOverlay = () => {
+const closeInstructions = () => {
     try {
-        const overlay = document.getElementById(`overlay`);
-        if (overlay) {
-            overlay.style.display = "none";
+        const instructions = document.getElementById(`instructions`);
+        if (instructions) {
+            instructions.style.display = "none";
         } else {
-            console.error("Element with id `overlay` not found.");
-            displayErrorModal("Sorry, Element with id 'overlay' not found! The error has been logged to the console. Please try again.");
+            console.error("Element with id `instructions` not found.");
+            displayErrorModal("Sorry, Element with id 'instructions' not found! The error has been logged to the console. Please try again.");
         }
     } catch (error) {
-        console.error("Error in closeOverlay function!", error);
-        displayErrorModal("Sorry, An error occurred with the closeOverlay function! The error has been logged to the console. Please try again.");
+        console.error("Error in closeInstructions function!", error);
+        displayErrorModal("Sorry, An error occurred with the closeInstructions function! The error has been logged to the console. Please try again.");
     }
 }
+
+const showContact = () => {
+    try {
+        const contactForm = document.getElementById("contactForm");
+        if (contactForm) {
+            contactForm.style.display = "flex";
+        } else {
+            console.error("Element with id `contactForm` not found.");
+            displayErrorModal("Sorry, Element with id `contactForm` not found! The error has been logged to the console. Please try again.");
+        }
+    } catch (error) {
+        console.error("Error in showForm function!", error);
+        displayErrorModal("Sorry, An error occurred with the showForm function! The error has been logged to the console. Please try again.");
+    }
+};
+
+const closeContact = () => {
+    try {
+        const contactForm = document.getElementById("contactForm");
+        if (contactForm) {
+            contactForm.style.display = "none";
+        } else {
+            console.error("Element with id `contactForm` not found.");
+            displayErrorModal("Sorry, Element with id `contactMForm` not found! The error has been logged to the console. Please try again.");
+        }
+    } catch (error) {
+        console.error("Error in closeForm function!", error);
+        displayErrorModal("Sorry, An error occurred with the closeForm function! The error has been logged to the console. Please try again.");
+    }
+};
+
+const submitContactForm = () => {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    const templateParams = {
+        from_name: name,
+        from_email: email,
+        message: message
+    };
+    emailjs.send('service_2n03ojy', 'Memory Game', templateParams)
+        .then((response) => {
+            console.log('Email sent successfully!', response);
+            closeContact()
+        }, (error) => {
+            console.error('Email sending failed!', error);
+            displayErrorModal("Sorry, An error occurred while sending the email. The error has been logged to the console. Please try again.");
+        });
+}
+
+
+// document.getElementById("showModalBtn").addEventListener("click", showModal);
+// document.querySelector(".close-btn").addEventListener("click", closeModal);
+
 
 const newGame = () => {
     try {
