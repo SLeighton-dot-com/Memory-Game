@@ -155,7 +155,6 @@ const newGame = () => {
         game.playerMoves = [];
         game.score = 0;
         game.movesLeft = 0;
-
         let balls = document.getElementsByClassName("ball");
         for (let ball of balls) {
             if (!ball.hasAttribute("data-listener")) {
@@ -177,7 +176,6 @@ const newTurn = () => {
         game.playerMoves = [];
         game.currentGame.push(game.balls[Math.floor(Math.random() * 5)]);
         game.movesLeft = game.currentGame.length;
-
         const leftElement = document.getElementById("left");
         if (leftElement) {
             leftElement.innerText = game.movesLeft;
@@ -288,12 +286,14 @@ const playerTurn = () => {
                 game.movesLeft = 1;
                 scoreDisplay();
                 game.sounds.success.play();
+                game.turnInProgress = true;
                 setTimeout(() => {
                     newTurn();
                 }, 1000);
             }
         } else {
             clearInterval(game.timer);
+            game.turnInProgress = true;
             alert("We're sorry, that was the wrong ball! Please start a new game.");
         }
     } catch (error) {
