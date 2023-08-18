@@ -1,12 +1,11 @@
 let game = {
-    currentGame: [],
-    playerMoves: [],
-    score: 0,
     balls: ["ball1", "ball2", "ball3", "ball4", "ball5"],
-    numberOfTurns: 0,
-    turnInProgress: false,
+    currentGame: [],
     lastButton: "",
     movesLeft: 0,
+    numberOfTurns: 0,
+    playerMoves: [],
+    score: 0,
     sounds: {
         ball1: new Audio(src = "assets/audio/sound_ball1.mp3"),
         ball2: new Audio(src = "assets/audio/sound_ball2.mp3"),
@@ -14,12 +13,13 @@ let game = {
         ball4: new Audio(src = "assets/audio/sound_ball4.mp3"),
         ball5: new Audio(src = "assets/audio/sound_ball5.mp3"),
         success: new Audio(src = "assets/audio/sound_success.mp3")
-    }
+    },
+    turnInProgress: false
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    emailjs.init('mvzgNnjxhZaW8DI7r'); 
-    showInstructions()
+    emailjs.init("mvzgNnjxhZaW8DI7r");
+    showInstructions();
 });
 
 const showInstructions = () => {
@@ -50,18 +50,20 @@ const closeInstructions = () => {
         console.error("Error in closeInstructions function!", error);
         displayErrorModal("Sorry, An error occurred with the closeInstructions function! The error has been logged to the console. Please try again.");
     }
-}
+};
 
 const showContact = () => {
     try {
-        const contactForm = document.getElementById("contactForm");
-        if (contactForm) {
-            contactForm.style.display = "flex";
-        } else {
-            console.error("Element with id `contactForm` not found.");
-            displayErrorModal("Sorry, Element with id `contactForm` not found! The error has been logged to the console. Please try again.");
+        const contactFormModal = document.getElementById("contactFormModal");
+        if (contactFormModal) {
+            contactFormModal.style.display = "flex";
         }
-    } catch (error) {
+        else {
+            console.error("Element with id `contactFormModal` not found.");
+            displayErrorModal("Sorry, Element with id `contactFormModal` not found! The error has been logged to the console. Please try again.");
+        }
+    }
+    catch (error) {
         console.error("Error in showForm function!", error);
         displayErrorModal("Sorry, An error occurred with the showForm function! The error has been logged to the console. Please try again.");
     }
@@ -69,12 +71,12 @@ const showContact = () => {
 
 const closeContact = () => {
     try {
-        const contactForm = document.getElementById("contactForm");
-        if (contactForm) {
-            contactForm.style.display = "none";
+        const contactFormModal = document.getElementById("contactFormModal");
+        if (contactFormModal) {
+            contactFormModal.style.display = "none";
         } else {
-            console.error("Element with id `contactForm` not found.");
-            displayErrorModal("Sorry, Element with id `contactMForm` not found! The error has been logged to the console. Please try again.");
+            console.error("Element with id `contactFormModal` not found.");
+            displayErrorModal("Sorry, Element with id `contactMFormModal` not found! The error has been logged to the console. Please try again.");
         }
     } catch (error) {
         console.error("Error in closeForm function!", error);
@@ -88,24 +90,20 @@ const submitContactForm = () => {
     const email = document.getElementById("email").value;
     const message = document.getElementById("message").value;
     const templateParams = {
-        from_name: name,
         from_email: email,
+        from_name: name,
         message: message
     };
-    emailjs.send('service_2n03ojy', 'Memory Game', templateParams)
+    emailjs.send("service_2n03ojy", "Memory Game", templateParams)
         .then((response) => {
-            console.log('Email sent successfully!', response);
-            closeContact()
-        }, (error) => {
-            console.error('Email sending failed!', error);
+            console.log("Email sent successfully!", response);
+            closeContact();
+        },
+        (error) => {
+            console.error("Email sending failed!", error);
             displayErrorModal("Sorry, An error occurred while sending the email. The error has been logged to the console. Please try again.");
         });
-}
-
-
-// document.getElementById("showModalBtn").addEventListener("click", showModal);
-// document.querySelector(".close-btn").addEventListener("click", closeModal);
-
+};
 
 const newGame = () => {
     try {
