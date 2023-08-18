@@ -109,8 +109,8 @@ const submitContactForm = () => {
         message: message,
     };
     emailjs.send("service_2n03ojy", "Memory Game", templateParams).then(
-        (response) => {
-            console.log("Email sent successfully!", response);
+        () => {
+            alert("Email sent successfully!");
             closeContact();
         },
         (error) => {
@@ -122,6 +122,33 @@ const submitContactForm = () => {
     );
 };
 
+const ballClicked = (ball) => {
+    try {
+        ball.addEventListener("click", (e) => {
+            if (game.currentGame.length > 0 && !game.turnInProgress) {
+                let playerMove = e.target.getAttribute("id");
+                game.lastButton = playerMove;
+                highlightBall(playerMove);
+                game.playerMoves.push(playerMove);
+                game.movesLeft--;
+                const leftElement = document.getElementById("left");
+                if (leftElement) {
+                    leftElement.innerText = game.movesLeft;
+                } else {
+                    throw new Error("Element with id 'left' not found.");
+                }
+                playerTurn();
+            }
+        });
+        ball.setAttribute("data-listener", "true");
+    } catch (error) {
+        console.error(error.message);
+        displayErrorModal(
+            "Sorry, an error occurred with the ballClicked function! The error has been logged to the console. Please try again.",
+        );
+    }
+}
+
 const newGame = () => {
     try {
         game.currentGame = [];
@@ -132,26 +159,7 @@ const newGame = () => {
         let balls = document.getElementsByClassName("ball");
         for (let ball of balls) {
             if (!ball.hasAttribute("data-listener")) {
-                ball.addEventListener("click", (e) => {
-                    if (game.currentGame.length > 0 && !game.turnInProgress) {
-                        let playerMove = e.target.getAttribute("id");
-                        game.lastButton = playerMove;
-                        highlightBall(playerMove);
-                        game.playerMoves.push(playerMove);
-                        game.movesLeft--;
-                        const leftElement = document.getElementById("left");
-                        if (leftElement) {
-                            leftElement.innerText = game.movesLeft;
-                        } else {
-                            console.error("Element with id 'left' not found.");
-                            displayErrorModal(
-                                "Sorry, Element with id 'left' not found! The error has been logged to the console. Please try again.",
-                            );
-                        }
-                        playerTurn();
-                    }
-                });
-                ball.setAttribute("data-listener", "true");
+                ballClicked(ball)
             }
         }
         scoreDisplay();
