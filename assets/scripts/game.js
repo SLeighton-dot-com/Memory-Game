@@ -359,5 +359,3 @@ const closeErrorModal = () => {
         modal.style.display = "none";
     }
 };
-
-// module.exports = { game, newGame, scoreDisplay, newTurn };
