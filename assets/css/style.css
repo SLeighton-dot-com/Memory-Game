@@ -1,6 +1,7 @@
 body {
     font-family: Pacifico, Roboto Slab;
     background: url("../images/background-1920.jpg") no-repeat center center;
+    background-attachment: fixed;
 }
 
 h1 {
@@ -128,7 +129,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #000000b3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,10 +137,10 @@ p {
 }
 
 .modal-content {
-    background-color: rgb(219, 152, 152);
+    background-color: #DB9898;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px #0000001a;
     max-width: 80%;
     text-align: center;
 }
@@ -156,7 +157,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #000000b3;
     /* Black with opacity */
 }
 
@@ -165,16 +166,21 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #f4f4f4;
+    background-color: #DB9898;
     padding: 20px;
     width: 80%;
+    text-align: center;
     max-width: 500px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px #0000004d;
 }
 
 .close-btn {
-    color: #aaa;
+    background-color: #66accc;;
     float: right;
     font-size: 28px;
     cursor: pointer;
+}
+
+#sendButton {
+    background-color: #66accc;
 }
