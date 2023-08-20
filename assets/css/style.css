@@ -16,11 +16,9 @@ h1 {
     right: 10px;
 }
 
+.newGameButton,
 .contactButton,
 .instructionsButton {
-    position: fixed;
-    top: 10px;
-    z-index: 999;
     padding: 5px 15px;
 }
 
@@ -44,7 +42,7 @@ h1 {
 }
 
 .container {
-    margin-bottom: 100px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
@@ -185,4 +183,28 @@ p {
 
 #sendButton {
     background-color: #66accc;
+}
+
+@media (max-width: 768px) {
+.ball{
+    width: 150px;
+    height: 150px;
+}
+
+.button,
+.scoreDisplay,
+.movesLeft,
+.scoreTitle,
+.timer{
+    width: 150px;
+}}
+
+@media (max-width: 576px) {
+.col{
+    padding-left: 0px;
+    padding-right: 0px;
+}}
+
+@media (max-width: 460px) {
+
 }
