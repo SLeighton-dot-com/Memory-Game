@@ -110,7 +110,7 @@ const submitContactForm = () => {
     };
     emailjs.send("service_2n03ojy", "Memory Game", templateParams).then(
         () => {
-            alert("Email sent successfully!");
+            displayErrorModal("Email sent successfully!");
             closeContact();
         },
         (error) => {
@@ -147,7 +147,7 @@ const ballClicked = (ball) => {
             "Sorry, an error occurred with the ballClicked function! The error has been logged to the console. Please try again.",
         );
     }
-}
+};
 
 const newGame = () => {
     try {
@@ -158,7 +158,7 @@ const newGame = () => {
         let balls = document.getElementsByClassName("ball");
         for (let ball of balls) {
             if (!ball.hasAttribute("data-listener")) {
-                ballClicked(ball)
+                ballClicked(ball);
             }
         }
         scoreDisplay();
@@ -294,7 +294,7 @@ const playerTurn = () => {
         } else {
             clearInterval(game.timer);
             game.turnInProgress = true;
-            alert("We're sorry, that was the wrong ball! Please start a new game.");
+            displayErrorModal("We're sorry, that was the wrong ball! Please start a new game.");
         }
     } catch (error) {
         console.error("Error in playerTurn function!", error);
@@ -314,7 +314,7 @@ const startTimer = () => {
             updateTimerDisplay(timeLeft);
             if (timeLeft <= 0) {
                 clearInterval(game.timer);
-                alert("We're sorry, your time's up! Please start a new game.");
+                displayErrorModal("We're sorry, your time's up! Please start a new game.");
             }
         }, 1000);
     } catch (error) {
