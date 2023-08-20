@@ -231,3 +231,22 @@ padding: 0;
 .ball {
     height: 100px;
 }}
+
+@media (max-width: 310px) {
+.button,
+.scoreDisplay,
+.movesLeft,
+.scoreTitle,
+.timer,
+.ball {
+    width: 85px;
+    }
+
+.ball {
+    height: 85px;
+}
+
+.h1Container {
+    padding-left: 0;
+    padding-right: 0;
+}}
