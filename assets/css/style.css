@@ -1,6 +1,6 @@
 body {
     font-family: Pacifico, Roboto Slab;
-    background: url("../images/background-1920.jpg") no-repeat center center;
+    background: url("../images/background-1920.jpg") no-repeat center center #b67df3;
     background-attachment: fixed;
 }
 
