@@ -183,6 +183,13 @@ p {
     background-color: #66accc;
 }
 
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 @media (max-width: 768px) {
 .ball{
     width: 150px;
