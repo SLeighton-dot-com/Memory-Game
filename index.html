@@ -44,11 +44,19 @@
     <header class="container">
         <h1>Memory Balls</h1>
     </header>
-
-    <button class="instructionsButton button" onclick="showInstructions()">Instructions</button>
-
-    <button class="contactButton button" onclick="showContact()">Contact Us</button>
-
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <button class="instructionsButton button" onclick="showInstructions()">Instructions</button>
+        </div>
+        <div class="col">
+            <button class="newGameButton button" onclick="newGame()">Start New Game</button>
+        </div>
+        <div class="col">
+            <button class="contactButton button" onclick="showContact()">Contact Us</button>
+        </div>
+    </div>
+</div>
     <main class="container">
         <div class="row">
             <div class="col">
@@ -76,13 +84,13 @@
 
     <aside class="container">
         <div class="row">
-            <div class="col-3">
+            <div class="col">
                 <h2 class="scoreTitle">Moves Left</h2>
             </div>
-            <div class="col-3">
+            <div class="col">
                 <h2 class="scoreTitle">Timer</h2>
             </div>
-            <div class="col-3">
+            <div class="col">
                 <h2 class="scoreTitle">High Score</h2>
             </div>
         </div>
@@ -96,9 +104,6 @@
             </div>
             <div class="col">
                 <div class="scoreDisplay" id="score">0</div>
-            </div>
-            <div class="col">
-                <button class=" newGameButton button" onclick="newGame()">Start New Game</button>
             </div>
         </div>
     </aside>
