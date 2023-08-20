@@ -206,5 +206,26 @@ p {
 }}
 
 @media (max-width: 460px) {
-
+h2,
+.button {
+font-size: 1em;
 }
+
+.newGameButton,
+.contactButton,
+.instructionsButton {
+padding: 0;
+}
+
+.button,
+.scoreDisplay,
+.movesLeft,
+.scoreTitle,
+.timer,
+.ball {
+    width: 100px;
+}
+
+.ball {
+    height: 100px;
+}}
