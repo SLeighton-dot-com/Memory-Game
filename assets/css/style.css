@@ -143,6 +143,8 @@ p {
     box-shadow: 0 4px 8px #0000001a;
     max-width: 80%;
     text-align: center;
+    overflow-y: auto;
+    max-height: 95vh;
 }
 
 #modalClose {
