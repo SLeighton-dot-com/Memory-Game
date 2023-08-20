@@ -8,14 +8,6 @@ h1 {
     font-weight: 300;
 }
 
-.instructionsButton {
-    left: 10px;
-}
-
-.contactButton {
-    right: 10px;
-}
-
 .newGameButton,
 .contactButton,
 .instructionsButton {
@@ -147,6 +139,8 @@ p {
 
 #modalClose {
     background-color: #66accc;
+    width: 55px;
+    margin: auto;
 }
 
 .contactModal {
@@ -173,10 +167,14 @@ p {
 }
 
 .close-btn {
-    background-color: #66accc;;
-    float: right;
-    font-size: 28px;
+    background-color: #66accc;
+    font-size: 1em;
     cursor: pointer;
+}
+
+.errorButton {
+    font-size: 1em;
+    float: none;
 }
 
 #sendButton {
