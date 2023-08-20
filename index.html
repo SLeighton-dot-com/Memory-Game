@@ -148,13 +148,12 @@
             Ready to test your memory?<br> 
             Click 'Start New Game' and let the fun begin!
             </p>
-            <button id="modalClose" onclick="closeInstructions()">Close</button>
+            <button id="modalClose" class="close-btn" onclick="closeInstructions()">Close</button>
         </div>
     </section>
 
     <div id="contactFormModal" class="contactModal">
         <div class="contactModalContent">
-            <span class="close-btn" onclick="closeContact()">&times;</span>
             <h2>Contact Form</h2>
             <form id="contactForm">
                 <label for="name">Name:</label><br>
@@ -167,13 +166,16 @@
                 <textarea id="message" name="message" required></textarea><br>
     
                 <input id="sendButton" type="submit" value="Send" onclick="submitContactForm()">
+                <button class="close-btn" onclick="closeContact()">Close</button>
             </form>
         </div>
     </div>
 
-    <div id="errorModal" style="display: none;">
-        <p id="errorModalMessage"></p>
-        <button onclick="closeErrorModal()">Close</button>
+    <div id="errorModal" class="contactModal" style="display: none;">
+        <div class="contactModalContent">
+            <p id="errorModalMessage"></p>
+            <button class="close-btn errorButton" onclick="closeErrorModal()">Close</button>
+        </div>
     </div>
 
     <script src="assets/scripts/game.js"></script>
