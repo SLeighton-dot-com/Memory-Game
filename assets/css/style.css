@@ -1,49 +1,45 @@
+/* General styles for the body */
 body {
     font-family: Pacifico, Roboto Slab;
     background: url("../images/background-1920.jpg") no-repeat center center #b67df3;
     background-attachment: fixed;
 }
 
+/* Styling for h1 elements */
 h1 {
     font-weight: 300;
 }
 
-.newGameButton,
-.contactButton,
-.instructionsButton {
-    padding: 5px 15px;
-}
-
+/* General button styles */
 .button {
-    background-color: #FF5A60;
     border: 0;
-    height: 80px;
-    width: 160px;
-    border-radius: 25%;
-    margin: 0 auto;
+    padding: 5px 15px;
     display: block;
-    font-size: 1.5em;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
+/* Hover effect for buttons */
 .instructionsButton:hover,
 .contactButton:hover,
 .newGameButton:hover {
     background-color: #555;
 }
 
+/* Container styles */
 .container {
     margin-bottom: 10px;
     text-align: center;
 }
 
+/* Column styles for centering content */
 .col {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* General ball styles */
 .ball {
     height: 200px;
     width: 200px;
@@ -51,68 +47,90 @@ h1 {
     cursor: pointer;
 }
 
+/* Individual color styling for ball 1 */
 .ball1 {
     background-color: #9AC5F4;
     border: 10px solid #66a9f0;
 }
 
+/* Individual color styling for ball 2 */
 .ball2 {
     background-color: #FFBFA9;
     border: 10px solid #f88e6a;
 }
 
+/* Individual color styling for ball 3 */
 .ball3 {
     background-color: #a7c9b6;
     border: 10px solid #4cac77;
 }
 
+/* Individual color styling for ball 4 */
 .ball4 {
     background-color: #FBFFB1;
     border: 10px solid #f1f86e;
 }
 
+/* Individual color styling for ball 5 */
 .ball5 {
     background-color: #D7BBF5;
     border: 10px solid #b67df3;
 }
 
+/* Score display and timer styles */
 .scoreDisplay,
 .movesLeft,
 .scoreTitle,
 .timer {
-    border-radius: 25%;
     box-sizing: border-box;
     background-color: #E6ECF0;
-    height: 80px;
-    width: 160px;
     text-align: center;
+}
+
+/* Common styling for score display, moves left, score labels, timer and buttons */
+.scoreDisplay,
+.movesLeft,
+.scoreTitle,
+.timer,
+.button {
+    width: 160px;
+    height: 80px;
+    border-radius: 25%;
     margin: 0 auto;
 }
 
+/* Font size for score display and timer */
 .scoreDisplay,
 .movesLeft,
 .timer {
     font-size: 3em;
 }
 
-h2 {
-    font-size: 1.5em;
+/* Font size for h2 and p elements and button class */
+p, 
+h2,
+.button {
+    font-size: 1.5;
 }
 
-p {
-    font-size: 1.5em;
-}
-
+/* Styling for all three labels above the score, timer and moves left displays */
 .scoreTitle {
     margin-bottom: 10px;
     padding-top: 25px;
-    background-color: #FF5A60;
 }
 
+/* Color style for button and scoreTitle classes */
+.button,
+.scoreTitle {
+        background-color: #FF5A60;
+}
+
+/* Highlight styles */
 .highlight {
     background-color: #444a4e;
 }
 
+/* Instructions modal styles */
 #instructions {
     position: fixed;
     top: 0;
@@ -126,8 +144,8 @@ p {
     z-index: 1000;
 }
 
+/* Modal content styles */
 .modal-content {
-    background-color: #DB9898;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 8px #0000001a;
@@ -137,12 +155,13 @@ p {
     max-height: 95vh;
 }
 
+/* Close button styles for modals */
 #modalClose {
-    background-color: #66accc;
     width: 55px;
     margin: auto;
 }
 
+/* Contact modal styles */
 .contactModal {
     display: none;
     position: fixed;
@@ -153,12 +172,12 @@ p {
     background-color: #000000b3;
 }
 
+/* Contact modal content styles */
 .contactModalContent {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #DB9898;
     padding: 20px;
     width: 80%;
     text-align: center;
@@ -166,21 +185,32 @@ p {
     box-shadow: 0 5px 15px #0000004d;
 }
 
+/* Color style for modal content and contact modal content classes */
+.modal-content,
+.contactModalContent {
+    background-color: #DB9898;
+}
+
+/* Close button styles for modals */
 .close-btn {
-    background-color: #66accc;
     font-size: 1em;
     cursor: pointer;
 }
 
+/* Error button styles */
 .errorButton {
     font-size: 1em;
     float: none;
 }
 
-#sendButton {
+/* Send button, modal close button and close button color styles */
+#sendButton,
+.close-btn,
+#modalClose {
     background-color: #66accc;
 }
 
+/* Contact form input styles */
 #contactForm input[type="text"],
 #contactForm input[type="email"],
 #contactForm textarea {
@@ -188,70 +218,85 @@ p {
     box-sizing: border-box;
 }
 
+/* Media Queries */
+
+/* This media query makes the game balls smaller, the score, moves left, and timer displays smaller 
+and makes the instructions writing smaller when the screen width reaches 768px */
 @media (max-width: 768px) {
-.ball{
-    width: 150px;
-    height: 150px;
-}
-
-p {
-    font-size: 1em;
-}
-
-.button,
-.scoreDisplay,
-.movesLeft,
-.scoreTitle,
-.timer{
-    width: 150px;
-}}
-
-@media (max-width: 576px) {
-.col{
-    padding-left: 0px;
-    padding-right: 0px;
-}}
-
-@media (max-width: 460px) {
-h2,
-.button {
-font-size: 1em;
-}
-
-.newGameButton,
-.contactButton,
-.instructionsButton {
-padding: 0;
-}
-
-.button,
-.scoreDisplay,
-.movesLeft,
-.scoreTitle,
-.timer,
-.ball {
-    width: 100px;
-}
-
-.ball {
-    height: 100px;
-}}
-
-@media (max-width: 310px) {
-.button,
-.scoreDisplay,
-.movesLeft,
-.scoreTitle,
-.timer,
-.ball {
-    width: 85px;
+    .ball {
+        width: 150px;
+        height: 150px;
     }
 
-.ball {
-    height: 85px;
+    p {
+        font-size: 1em;
+    }
+
+    .button,
+    .scoreDisplay,
+    .movesLeft,
+    .scoreTitle,
+    .timer {
+        width: 150px;
+    }
 }
 
-.h1Container {
-    padding-left: 0;
-    padding-right: 0;
-}}
+/* This media query removes the padding for the .col class when the screen width reaches 576px */
+@media (max-width: 576px) {
+    .col {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+/* This media query changes the font size and removes padding of the .button class, changes the font 
+ size of the h2 heading, and changes the width of the displays, buttons and balls and changes the 
+ height of the game balls when the screen width reaches 460px */
+@media (max-width: 460px) {
+
+    h2,
+    .button {
+        font-size: 1em;
+    }
+
+    .button {
+        padding: 0;
+    }
+
+    .button,
+    .scoreDisplay,
+    .movesLeft,
+    .scoreTitle,
+    .timer,
+    .ball {
+        width: 100px;
+    }
+
+    .ball {
+        height: 100px;
+    }
+}
+
+/* This media query changes the width of the displays, buttons and balls and changes the 
+height of the game balls and removes padding from the contaion holding the h1 header when 
+the screen width reaches 310px */
+@media (max-width: 310px) {
+
+    .button,
+    .scoreDisplay,
+    .movesLeft,
+    .scoreTitle,
+    .timer,
+    .ball {
+        width: 85px;
+    }
+
+    .ball {
+        height: 85px;
+    }
+
+    .h1Container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
