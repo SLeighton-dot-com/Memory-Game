@@ -1,3 +1,4 @@
+// Define the game object with its properties
 let game = {
     balls: ["ball1", "ball2", "ball3", "ball4", "ball5"],
     currentGame: [],
@@ -6,6 +7,7 @@ let game = {
     numberOfTurns: 0,
     playerMoves: [],
     score: 0,
+    // Define the sounds associated with each ball and game success
     sounds: {
         ball1: new Audio((src = "assets/audio/sound_ball1.mp3")),
         ball2: new Audio((src = "assets/audio/sound_ball2.mp3")),
@@ -17,11 +19,13 @@ let game = {
     turnInProgress: false,
 };
 
+// Initialize EmailJS and launch the instructions modal once the DOM content is loaded
 document.addEventListener("DOMContentLoaded", () => {
     emailjs.init("mvzgNnjxhZaW8DI7r");
     showInstructions();
 });
 
+// Function to display the game instructions modal
 const showInstructions = () => {
     try {
         const instructions = document.getElementById("instructions");
@@ -41,6 +45,7 @@ const showInstructions = () => {
     }
 };
 
+// Function to close the game instructions modal
 const closeInstructions = () => {
     try {
         const instructions = document.getElementById(`instructions`);
@@ -60,6 +65,7 @@ const closeInstructions = () => {
     }
 };
 
+// Function to display the contact modal
 const showContact = () => {
     try {
         const contactFormModal = document.getElementById("contactFormModal");
@@ -79,6 +85,7 @@ const showContact = () => {
     }
 };
 
+// Function to close the contact modal without sending contact form
 const closeContact = () => {
     try {
         const contactFormModal = document.getElementById("contactFormModal");
@@ -98,6 +105,7 @@ const closeContact = () => {
     }
 };
 
+// Function to sending the contact form via EmailJS
 const submitContactForm = () => {
     event.preventDefault();
     const name = document.getElementById("name").value;
@@ -121,6 +129,8 @@ const submitContactForm = () => {
         },
     );
 };
+
+// Function contains the code for when a game to play
 
 const ballClicked = (ball) => {
     try {
@@ -149,6 +159,7 @@ const ballClicked = (ball) => {
     }
 };
 
+// Function to start a new game
 const newGame = () => {
     try {
         game.currentGame = [];
@@ -171,6 +182,7 @@ const newGame = () => {
     }
 };
 
+// Function to start a new turn in the game
 const newTurn = () => {
     try {
         game.playerMoves = [];
@@ -198,6 +210,7 @@ const newTurn = () => {
     }
 };
 
+// Function to update the displayed score
 const scoreDisplay = () => {
     try {
         const scoreElement = document.getElementById("score");
@@ -217,6 +230,7 @@ const scoreDisplay = () => {
     }
 };
 
+// Function to highlight a ball and play the correct audio file
 const highlightBall = (ball) => {
     try {
         let audioElement = document.getElementById("sound_" + ball);
@@ -249,11 +263,11 @@ const highlightBall = (ball) => {
     }
 };
 
+// Function to display the sequence of balls for the current turn
 const showTurns = () => {
     try {
         game.turnInProgress = true;
         game.numberOfTurns = 0;
-
         const leftElement = document.getElementById("left");
         if (!leftElement) {
             throw new Error("Element with id 'left' not found.");
@@ -276,6 +290,7 @@ const showTurns = () => {
     }
 };
 
+// Function to handle the player's turn
 const playerTurn = () => {
     try {
         let i = game.playerMoves.length - 1;
@@ -304,6 +319,7 @@ const playerTurn = () => {
     }
 };
 
+// Function to start the timer for the player's turn
 const startTimer = () => {
     try {
         if (game.timer) return;
@@ -325,6 +341,7 @@ const startTimer = () => {
     }
 };
 
+// Function to display and update the timer on game page
 const updateTimerDisplay = (seconds) => {
     try {
         const timerElement = document.getElementById("timer");
@@ -344,6 +361,7 @@ const updateTimerDisplay = (seconds) => {
     }
 };
 
+// Display an error modal with a given message from catch error handling or game error
 const displayErrorModal = (message) => {
     const modal = document.getElementById("errorModal");
     const modalMessage = document.getElementById("errorModalMessage");
@@ -353,6 +371,7 @@ const displayErrorModal = (message) => {
     }
 };
 
+// Close the error modal
 const closeErrorModal = () => {
     const modal = document.getElementById("errorModal");
     if (modal) {
