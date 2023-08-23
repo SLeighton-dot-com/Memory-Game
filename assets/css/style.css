@@ -1,6 +1,6 @@
 /* General styles for the body */
 body {
-    font-family: Pacifico, Roboto Slab;
+    font-family: Pacifico, sans-serif;
     background: url("../images/background_1920.jpg") no-repeat center center #b67df3;
     background-attachment: fixed;
 }
