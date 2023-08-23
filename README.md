@@ -121,4 +121,4 @@ This is where I tested the responsiveness for a few different screen sizes.
 * [PythonTutor:](https://pythontutor.com/javascript.html#mode=edit)
 Python Tutor is where I developed some of my Javascript functions.
 * [Google Chrome Lighthouse:](https://developer.chrome.com/docs/lighthouse/overview/)
-I used Lighthouse to check my page for SEO, performance andbest practices.
+I used Lighthouse to check my page for SEO, performance and best practices.
