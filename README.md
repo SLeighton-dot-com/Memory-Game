@@ -65,20 +65,20 @@ Memory Balls is a fun and challenging game designed to test and improve your mem
 
 * ## Features
 
-* Instructions, new game and contact us buttons.
+* Instructions, new game and contact us buttons.<br>
 ![Picture of buttons](assets/images/picture_of_buttons.png "Picture of buttons")
-* Five different colored balls to interact with.
+* Five different colored balls to interact with.<br>
 ![Picture of game balls](assets/images/picture_of_game_balls.png "Picture of game balls")
-* Score, moves left and timer display.
+* Score, moves left and timer display.<br>
 ![Picture of score, timer and moves left](assets/images/picture_of_score_timer_moves_left.png "Picture of score, timer and moves left")
-* Instructions modal for new players.
+* Instructions modal for new players.<br>
 ![Picture of instructions](assets/images/picture_of_instructions.png "Picture of instructions")
-* Contact form for user feedback.
+* Contact form for user feedback.<br>
 ![Picture of contact form](assets/images/picture_of_contact_form.png "Picture of contact form")
-* Error modal for handling unexpected issues.
+* Error modal for handling unexpected issues.<br>
 ![Picture of error modal](assets/images/picture_of_error_modal.png "Picture of error modal")
 * Audio feedback for user interactions.
-* Favicon icons for more pleasing tabs.
+* Favicon icons for more pleasing tabs.<br>
 ![Picture of Favicon](assets/favicon/android-icon-192x192.png "Picture of Favicon")
 
 * Responsive on various device sizes down to a screen width of 255px for game availability on a wide variety of devices.
