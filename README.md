@@ -166,6 +166,25 @@ JSHint online found 72 warnings, but I believe this is due to it needing to be i
 | SEO |    100     |    100     |
 | Best Practices |    100     |    100     |
 
+* ### Interactive elements
+
+| Button | Working |
+|:----:|:----:|
+Instruction Button | &check; |
+Instruction - Close Button | &check; |
+Start New Game Button | &check; |
+Contact Us Button | &check; |
+Contact Us - Close Button | &check; |
+Contact Us - Send Button | &check; |
+
+| Ball Clicked | Highlighted |
+|:----:|:----:|
+| Ball 1 | &check; |
+| Ball 2 | &check; |
+| Ball 3 | &check; |
+| Ball 4 | &check; |
+| Ball 5 | &check; |
+
 * ### Fixed Bugs
 
   * I had an issue with a console error getting logged:
