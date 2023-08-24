@@ -202,6 +202,14 @@ JSHint online found 72 warnings, but I believe this is due to it needing to be i
 
   * During mobile testing I had a report that the game froze on an Android mobile phone. Neither the user nor I could replicate this issue.
 
+  * I am getting yellow warnings in the console of the deployed site. I am unsure what this means as the code it specifies is not code I have written.
+  
+        pagedata-script.js:1 CaptureThumbnail error TypeError: a.getContext(...).drawWindow is not a function
+        at pagedata-script.js:1:12510
+        at pagedata-script.js:1:12723
+        at pagedata-script.js:1:13055
+        at pagedata-script.js:1:13059
+
 ---
 
 * # Deployment
